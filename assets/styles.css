@@ -1,10 +1,10 @@
-/* ===== Portugal Theme - Light + Clean ===== */
+/* ================= Portugal Theme - Light + Clean ================= */
 
 /* Global Colors */
 :root {
-  --green: #04724D; /* Portugal green */
-  --red: #C1121F;   /* Portugal red */
-  --gold: #D4AF37;  /* CR7 gold hint */
+  --green: #04724D;   /* Portugal green */
+  --red: #C1121F;     /* Portugal red */
+  --gold: #D4AF37;    /* CR7 gold hint */
   --gray-bg: #f4f4f4;
   --white: #fff;
   --charcoal: #2b2b2b;
@@ -12,6 +12,10 @@
 }
 
 /* Base Layout */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", Arial, sans-serif;
   margin: 0;
@@ -70,7 +74,14 @@ main {
   text-decoration: none;
   font-weight: 600;
   border: none;
+  background: var(--light-gray);
+  color: var(--charcoal);
   transition: 0.25s ease;
+}
+
+.btn:hover {
+  background: #dcdcdc;
+  transform: translateY(-2px);
 }
 
 .btn.primary {
@@ -80,16 +91,6 @@ main {
 
 .btn.primary:hover {
   background: #a10d18;
-  transform: translateY(-2px);
-}
-
-.btn {
-  background: var(--light-gray);
-  color: var(--charcoal);
-}
-
-.btn:hover {
-  background: #dcdcdc;
   transform: translateY(-2px);
 }
 
@@ -114,19 +115,7 @@ li {
   margin-bottom: 6px;
 }
 
-/* Media Query (Mobile) */
-@media (max-width: 600px) {
-  main {
-    margin: 1.2em;
-    padding: 1.2em;
-  }
-  .site-nav a {
-    margin: 0 0.4em;
-  }
-}
-/* === Hero Banner (Fixed) === */
-/* ================= HERO BANNER (UPGRADED) ================= */
-
+/* === Hero Banner === */
 .hero-banner {
   min-height: 90vh;
   display: flex;
@@ -137,9 +126,27 @@ li {
   position: relative;
   overflow: hidden;
   color: white;
-  background-image: url("assets/banner.jpg");
+  background-image: url("assets/banner-new.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   animation: bgZoom 18s ease-in-out infinite;
+}
+
+/* Background Animation */
+@keyframes bgZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Media Query (Mobile) */
+@media (max-width: 600px) {
+  main {
+    margin: 1.2em;
+    padding: 1.2em;
+  }
+  .site-nav a {
+    margin: 0 0.4em;
+  }
 }

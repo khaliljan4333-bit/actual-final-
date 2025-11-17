@@ -143,3 +143,12 @@ header, footer {
   .hero-content h1 { font-size: 1.7rem; }
   .site-nav a { margin: 0 0.3em; }
 }
+/* ===== FIX CHART SIZE ===== */
+.stats-chart {
+  display: block;
+  width: 100%;          /* Fit container width */
+  max-width: 350px;     /* HARD LIMIT so it never gets too big */
+  margin: 1.4em auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}

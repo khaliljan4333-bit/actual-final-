@@ -5,9 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>The Case – Ronaldo vs Messi</title>
 <link rel="stylesheet" href="assets/styles.css" />
-<style>
-/* ===== CASE PAGE EXTRAS (ONLY FOR THIS PAGE) ===== */
 
+<style>
+/* ===== SLIDER ===== */
+.compare-container {
+  position: relative;
+  max-width: 700px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+.compare-img { width: 100%; display: block; }
+.compare-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  background-image: url("assets/slider.png");
+  background-size: cover;
+  background-position: left;
+  pointer-events: none;
+}
+#compareSlider { width: 100%; margin-top: 10px; }
+
+/* ===== CASE PAGE EXTRAS ===== */
 .case-box {
   background: #fff;
   padding: 1rem;
@@ -15,8 +36,6 @@
   border: 1px solid #ddd;
   margin-bottom: 1.3rem;
 }
-
-/* Collapsible Panels */
 details {
   background: #f5f5f5;
   border-radius: 8px;
@@ -25,29 +44,18 @@ details {
   margin-bottom: .8rem;
   cursor: pointer;
 }
+details summary { font-weight: 700; color: var(--red); }
 
-details summary {
-  font-weight: 700;
-  color: var(--red);
-}
-
-/* Fan Mode */
 #modeBox {
-  background: #fff;
-  padding:1rem;
-  border-radius:10px;
-  border:2px solid var(--red);
-  font-weight:700;
-  text-align:center;
-  margin-bottom:1rem;
+  background: #fff; padding:1rem;
+  border-radius:10px; border:2px solid var(--red);
+  font-weight:700; text-align:center;
 }
-
 #toggleMode {
   background: var(--red);
   padding:.5rem 1rem;
   border-radius:8px;
-  color:white;
-  cursor:pointer;
+  color:white; cursor:pointer;
   font-weight:700;
 }
 
@@ -56,12 +64,6 @@ details summary {
   padding-left: 1rem;
   margin: 1rem 0;
 }
-
-.timeline p {
-  margin: .4rem 0;
-  font-weight: 500;
-}
-
 .highlight-row {
   background: #fafafa;
   border-left: 4px solid var(--red);
@@ -88,7 +90,6 @@ details summary {
 <main>
 <h1>The Case for Cristiano Ronaldo</h1>
 
-<!-- ================= MODE SWITCH ================= -->
 <div id="modeBox">
   <span id="modeText">Logic Mode: Outcome-Based Evaluation</span><br><br>
   <button id="toggleMode">Switch to Fan Mode</button>
@@ -96,9 +97,6 @@ details summary {
 
 <section class="case-box">
 <h2>How the Debate Is Scored</h2>
-<p>
-This argument ranks players using <strong>trophy-relevant criteria</strong>:
-</p>
 <ul>
   <li>High-leverage scoring</li>
   <li>Champions League resume</li>
@@ -106,105 +104,59 @@ This argument ranks players using <strong>trophy-relevant criteria</strong>:
   <li>Longevity and reinvention</li>
   <li>International impact</li>
 </ul>
-<p>Under these lenses, Ronaldo gains the edge in <strong>outcome-shaping value</strong>.</p>
 </section>
 
 <section class="case-box">
 <h2>1. Big-Game Scoring Impact</h2>
-<p>
-Ronaldo is the most prolific knockout scorer ever recorded. His goals flipped ties, seasons, and trophy paths —
-Juventus 2018, Atlético 2019, Bayern 2017, Wolfsburg 2016.
-</p>
-<details>
-  <summary>Counter-argument</summary>
-  Messi has decisive games too, especially early in Barcelona’s dynasty.
-</details>
-<details>
-  <summary>Rebuttal</summary>
-  Ronaldo extends that impact <em>later into his career, in more environments, and deeper into eliminations.</em>
-</details>
+<p>Ronaldo is the most prolific knockout scorer ever recorded…</p>
 </section>
 
 <section class="case-box">
 <h2>2. Champions League Ownership</h2>
-
 <div class="highlight-row">Most UCL Goals in History – 140+</div>
 <div class="highlight-row">Most Knockout Goals – 67+</div>
-<div class="highlight-row">Only player to score in 3 UCL finals</div>
-
-<p>
-The Champions League is the varsity level — the closest thing football has to “who decides the sport.”  
-Ronaldo owns it.
-</p>
 </section>
 
 <section class="case-box">
 <h2>3. Adaptability vs System Fit</h2>
-<p>
-Ronaldo won Golden Boots in England, Spain, and Italy — different leagues, tactical demands, and coaches.
-Messi played 17 peak years in one system built around him.
-</p>
-
-<details>
-  <summary>Counter-argument</summary>
-  Messi still succeeded outside Barcelona, winning Ligue 1 and the World Cup.
-</details>
-<details>
-  <summary>Rebuttal</summary>
-  Ronaldo did it earlier, in harder leagues, and without a permanent support structure.
-</details>
+<p>Ronaldo won Golden Boots in England, Spain, and Italy…</p>
 </section>
 
 <section class="case-box">
 <h2>4. Longevity and Reinvention</h2>
-<p>
-Ronaldo didn’t decline — he <strong>changed shapes</strong>:
-</p>
 <ul>
   <li>2008 – Winger</li>
   <li>2013 – Inside Forward</li>
-  <li>2018–Now – Penalty-box Striker & Aerial Weapon</li>
+  <li>2018–Now – Striker</li>
 </ul>
-<p>
-He remained elite across all three. That is athletic evolution, not system insulation.
-</p>
 </section>
 
 <section class="case-box">
-<h2>5. International Weight</h2>
-<p>
-Ronaldo is the most productive international scorer ever.  
-He delivered title-shifting output at Euro 2016 and Nations League 2019.  
-Messi’s World Cup run was legendary — but arrived <strong>16 years into his career.</strong>
-</p>
+<h2>5. International Impact</h2>
+<p>Ronaldo is the most productive international scorer ever…</p>
 </section>
 
-<!-- ============== NEW SECTION: TIMELINE ================= -->
 <section class="case-box">
-<h2>Career Timeline – Where the Gap Forms</h2>
-
+<h2>Career Timeline</h2>
 <div class="timeline">
-<p><strong>2008</strong> – Ronaldo UCL + Ballon d’Or</p>
-<p><strong>2014</strong> – Ronaldo 17-goal UCL record</p>
-<p><strong>2016</strong> – Euro Title</p>
-<p><strong>2017</strong> – Back-to-back UCL domination</p>
-<p><strong>2018</strong> – Bicycle Kick vs Juventus</p>
-<p><strong>2019</strong> – Nations League & Atlético Hat-Trick</p>
+<p><strong>2008</strong> – UCL + Ballon d'Or</p>
+<p><strong>2016</strong> – Euro win</p>
+<p><strong>2018</strong> – Bicycle kick vs Juve</p>
 </div>
+</section>
 
-<p><em>Messi’s graph spikes early but flattens sooner.</em></p>
+<section class="case-box">
+<h2>Drag to Compare</h2>
+<div class="compare-container">
+  <img src="assets/slider.png" class="compare-img">
+  <div class="compare-overlay" id="overlay"></div>
+  <input type="range" min="0" max="100" value="50" id="compareSlider">
+</div>
 </section>
 
 <section class="case-box">
 <h2>Final Judgment</h2>
-<p>
-If the question is <strong>“Who played football prettier?”</strong> — that’s personal.
-</p>
-<p>
-If the question is <strong>“Who decided more seasons, in more places, for longer, on bigger nights?”</strong>
-</p>
-
-<h3 style="color:var(--red);text-align:center;margin-top:.4rem">
+<h3 style="color:var(--red);text-align:center;">
 The answer is Cristiano Ronaldo.
 </h3>
 </section>
@@ -216,7 +168,7 @@ The answer is Cristiano Ronaldo.
 </footer>
 
 <script>
-/* ===== FAN MODE TOGGLE ===== */
+/* FAN MODE */
 const btn = document.getElementById("toggleMode");
 const box = document.getElementById("modeBox");
 const txt = document.getElementById("modeText");
@@ -224,14 +176,18 @@ const txt = document.getElementById("modeText");
 let fan = false;
 btn.onclick = () => {
   fan = !fan;
-  if(fan){
-    txt.textContent = "🔥 Fan Mode: SIUUU > Logic";
-    box.style.borderColor = "var(--green)";
-  } else {
-    txt.textContent = "Logic Mode: Outcome-Based Evaluation";
-    box.style.borderColor = "var(--red)";
-  }
+  txt.textContent = fan ? "🔥 Fan Mode: SIUUU > Logic" : "Logic Mode: Outcome-Based Evaluation";
+  box.style.borderColor = fan ? "var(--green)" : "var(--red)";
 };
+</script>
+
+<!-- 🔥 SLIDER FIXED HERE -->
+<script>
+const overlay = document.getElementById("overlay");
+const slider = document.getElementById("compareSlider");
+slider.addEventListener("input", e => {
+  overlay.style.width = `${e.target.value}%`;
+});
 </script>
 
 <script src="assets/app.js" defer></script>

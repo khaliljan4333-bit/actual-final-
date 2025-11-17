@@ -1,13 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>The Case – Ronaldo vs Messi</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Case – Ronaldo vs Messi</title>
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+/* ===== CASE PAGE EXTRAS (ONLY FOR THIS PAGE) ===== */
+
+.case-box {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 1.3rem;
+}
+
+/* Collapsible Panels */
+details {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: .8rem;
+  border: 1px solid #ddd;
+  margin-bottom: .8rem;
+  cursor: pointer;
+}
+
+details summary {
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* Fan Mode */
+#modeBox {
+  background: #fff;
+  padding:1rem;
+  border-radius:10px;
+  border:2px solid var(--red);
+  font-weight:700;
+  text-align:center;
+  margin-bottom:1rem;
+}
+
+#toggleMode {
+  background: var(--red);
+  padding:.5rem 1rem;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.timeline {
+  border-left: 4px solid var(--green);
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
+
+.timeline p {
+  margin: .4rem 0;
+  font-weight: 500;
+}
+
+.highlight-row {
+  background: #fafafa;
+  border-left: 4px solid var(--red);
+  padding: .6rem;
+  margin-bottom: .6rem;
+  font-weight: 600;
+}
+</style>
 </head>
 
 <body>
+
 <header class="site-header">
   <a class="logo" href="index.html">Ronaldo &gt; Messi</a>
   <nav class="site-nav">
@@ -20,99 +86,153 @@
 </header>
 
 <main>
-  <h1>The Case for Cristiano Ronaldo</h1>
+<h1>The Case for Cristiano Ronaldo</h1>
 
-  <section>
-    <h2>How This Argument Works</h2>
-    <p>
-      This isn’t about highlights or style preference. It’s an outcomes-first comparison built on:
-    </p>
-    <ul>
-      <li>Impact in high-leverage games</li>
-      <li>Champions League dominance</li>
-      <li>Adaptability across leagues, systems, and coaches</li>
-      <li>Longevity and reinvention instead of decline</li>
-      <li>Scoring value under pressure</li>
-    </ul>
-    <p>Under those metrics, Cristiano Ronaldo produces more of what decides trophies.</p>
-  </section>
+<!-- ================= MODE SWITCH ================= -->
+<div id="modeBox">
+  <span id="modeText">Logic Mode: Outcome-Based Evaluation</span><br><br>
+  <button id="toggleMode">Switch to Fan Mode</button>
+</div>
 
-  <section>
-    <h2>1. Big-Game Impact</h2>
-    <p>
-      Ronaldo is the most prolific knockout scorer in Champions League history and owns more late-stage hat-tricks than any player ever recorded.
-    </p>
-    <p>
-      His goals routinely flipped ties: Juventus 2018, Atlético Madrid 2019, Bayern 2017, Wolfsburg 2016.
-      These weren’t group-stage stat pads — they changed seasons.
-    </p>
-    <p><strong>Counterpoint:</strong> Messi has delivered big moments, especially earlier in his career.</p>
-    <p><strong>Rebuttal:</strong> Ronaldo sustains that impact deeper into tournaments and later into his career.</p>
-  </section>
+<section class="case-box">
+<h2>How the Debate Is Scored</h2>
+<p>
+This argument ranks players using <strong>trophy-relevant criteria</strong>:
+</p>
+<ul>
+  <li>High-leverage scoring</li>
+  <li>Champions League resume</li>
+  <li>Adaptability across leagues</li>
+  <li>Longevity and reinvention</li>
+  <li>International impact</li>
+</ul>
+<p>Under these lenses, Ronaldo gains the edge in <strong>outcome-shaping value</strong>.</p>
+</section>
 
-  <section>
-    <h2>2. Champions League Resume</h2>
-    <ul>
-      <li>Most UCL goals ever – <strong>140+</strong></li>
-      <li>Most UCL knockout goals – <strong>67+</strong></li>
-      <li>Most UCL Final wins – <strong>5</strong></li>
-      <li>Only player to score in three different UCL finals</li>
-    </ul>
-    <p>
-      The Champions League is the highest level of club football. If careers are judged by the toughest stage,
-      Ronaldo owns that arena.
-    </p>
-  </section>
+<section class="case-box">
+<h2>1. Big-Game Scoring Impact</h2>
+<p>
+Ronaldo is the most prolific knockout scorer ever recorded. His goals flipped ties, seasons, and trophy paths —
+Juventus 2018, Atlético 2019, Bayern 2017, Wolfsburg 2016.
+</p>
+<details>
+  <summary>Counter-argument</summary>
+  Messi has decisive games too, especially early in Barcelona’s dynasty.
+</details>
+<details>
+  <summary>Rebuttal</summary>
+  Ronaldo extends that impact <em>later into his career, in more environments, and deeper into eliminations.</em>
+</details>
+</section>
 
-  <section>
-    <h2>3. Adaptability vs System Fit</h2>
-    <p>
-      Ronaldo produced Golden Boot seasons in England, Spain, and Italy — three tactical environments,
-      three different roles, dozens of managers and systems.
-    </p>
-    <p>
-      Messi’s peak seasons came under one structure built for him: Barcelona’s possession model under Guardiola,
-      Luis Enrique, and Valverde.
-    </p>
-    <p><strong>Rebuttal:</strong> Messi adapted late in his career — but Ronaldo did it a decade earlier and sustained it longer.</p>
-  </section>
+<section class="case-box">
+<h2>2. Champions League Ownership</h2>
 
-  <section>
-    <h2>4. Longevity and Reinvention</h2>
-    <p>
-      Ronaldo went from winger → inside forward → box striker without losing elite output.
-    </p>
-    <p>
-      Most attackers decline by 32. Ronaldo won a Golden Boot at 36. His late-career aerial dominance and movement
-      are entirely different skill-profiles than his 2009 self.
-    </p>
-  </section>
+<div class="highlight-row">Most UCL Goals in History – 140+</div>
+<div class="highlight-row">Most Knockout Goals – 67+</div>
+<div class="highlight-row">Only player to score in 3 UCL finals</div>
 
-  <section>
-    <h2>5. Leadership, Mindset, and Margins</h2>
-    <p>
-      Ronaldo’s obsessive conditioning, mentality, and presence raise team ceilings in knockout games.
-      His national team output is the best in history, not just by total goals — but by
-      <strong>decisive moments:</strong> Euro 2016 knockout assists, Nations League hat-tricks, repeated qualification carry-jobs.
-    </p>
-    <p><em>Leadership isn’t about quotes — it’s about changing outcomes.</em></p>
-  </section>
+<p>
+The Champions League is the varsity level — the closest thing football has to “who decides the sport.”  
+Ronaldo owns it.
+</p>
+</section>
 
-  <section>
-    <h2>Conclusion</h2>
-    <p>
-      If the goal is most beautiful football, the debate is subjective.
-      If the goal is <strong>who produced more when trophies were decided, across more environments, for longer</strong> —
-      the argument tilts toward Cristiano Ronaldo.
-    </p>
-    <p>He won everywhere, under anyone, against everyone — and kept doing it when others slowed down.</p>
-  </section>
+<section class="case-box">
+<h2>3. Adaptability vs System Fit</h2>
+<p>
+Ronaldo won Golden Boots in England, Spain, and Italy — different leagues, tactical demands, and coaches.
+Messi played 17 peak years in one system built around him.
+</p>
+
+<details>
+  <summary>Counter-argument</summary>
+  Messi still succeeded outside Barcelona, winning Ligue 1 and the World Cup.
+</details>
+<details>
+  <summary>Rebuttal</summary>
+  Ronaldo did it earlier, in harder leagues, and without a permanent support structure.
+</details>
+</section>
+
+<section class="case-box">
+<h2>4. Longevity and Reinvention</h2>
+<p>
+Ronaldo didn’t decline — he <strong>changed shapes</strong>:
+</p>
+<ul>
+  <li>2008 – Winger</li>
+  <li>2013 – Inside Forward</li>
+  <li>2018–Now – Penalty-box Striker & Aerial Weapon</li>
+</ul>
+<p>
+He remained elite across all three. That is athletic evolution, not system insulation.
+</p>
+</section>
+
+<section class="case-box">
+<h2>5. International Weight</h2>
+<p>
+Ronaldo is the most productive international scorer ever.  
+He delivered title-shifting output at Euro 2016 and Nations League 2019.  
+Messi’s World Cup run was legendary — but arrived <strong>16 years into his career.</strong>
+</p>
+</section>
+
+<!-- ============== NEW SECTION: TIMELINE ================= -->
+<section class="case-box">
+<h2>Career Timeline – Where the Gap Forms</h2>
+
+<div class="timeline">
+<p><strong>2008</strong> – Ronaldo UCL + Ballon d’Or</p>
+<p><strong>2014</strong> – Ronaldo 17-goal UCL record</p>
+<p><strong>2016</strong> – Euro Title</p>
+<p><strong>2017</strong> – Back-to-back UCL domination</p>
+<p><strong>2018</strong> – Bicycle Kick vs Juventus</p>
+<p><strong>2019</strong> – Nations League & Atlético Hat-Trick</p>
+</div>
+
+<p><em>Messi’s graph spikes early but flattens sooner.</em></p>
+</section>
+
+<section class="case-box">
+<h2>Final Judgment</h2>
+<p>
+If the question is <strong>“Who played football prettier?”</strong> — that’s personal.
+</p>
+<p>
+If the question is <strong>“Who decided more seasons, in more places, for longer, on bigger nights?”</strong>
+</p>
+
+<h3 style="color:var(--red);text-align:center;margin-top:.4rem">
+The answer is Cristiano Ronaldo.
+</h3>
+</section>
 
 </main>
 
 <footer class="site-footer">
   <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
 </footer>
+
+<script>
+/* ===== FAN MODE TOGGLE ===== */
+const btn = document.getElementById("toggleMode");
+const box = document.getElementById("modeBox");
+const txt = document.getElementById("modeText");
+
+let fan = false;
+btn.onclick = () => {
+  fan = !fan;
+  if(fan){
+    txt.textContent = "🔥 Fan Mode: SIUUU > Logic";
+    box.style.borderColor = "var(--green)";
+  } else {
+    txt.textContent = "Logic Mode: Outcome-Based Evaluation";
+    box.style.borderColor = "var(--red)";
+  }
+};
+</script>
 
 <script src="assets/app.js" defer></script>
 </body>

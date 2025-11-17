@@ -169,8 +169,49 @@ tbody tr:hover {
   background: #f1f1f1;
 }
 
-/* Chart image styling */
+/* Chart */
 .stats-chart {
   display: block;
-  max-width: 325px;   /* HARD cap the width */
-  width: 100%;        /* Responsive*
+  max-width: 325px;
+  width: 100%;
+  margin: 1.5em auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Counters */
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.counter-box {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.count-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    margin: 1.2em;
+    padding: 1.2em;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  .site-nav a {
+    margin: 0 0.3em;
+  }
+}

@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
-    /* HERO BACKGROUND SPLIT WITH REAL PLAYER IMAGES */
+    /* ================= HERO WITH REAL IMAGES ================= */
     .hero {
       position: relative;
       width: 100%;
-      min-height: 90vh;
+      min-height: 92vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,7 +29,7 @@
       height: 100%;
       background-size: cover;
       background-position: center;
-      filter: brightness(0.45);
+      filter: brightness(0.42);
     }
 
     .hero-left {
@@ -42,7 +42,7 @@
       background-image: url("assets/img/messi.jpg");
     }
 
-    /* PLAYER NAME LABELS */
+    /* PLAYER LABELS */
     .player-label {
       position: absolute;
       top: 110px;
@@ -52,53 +52,96 @@
       border-radius: 50px;
       backdrop-filter: blur(4px);
       color: white;
+      z-index: 5;
     }
 
     .player-left { left: 70px; border: 2px solid #04724d; }
     .player-right { right: 70px; border: 2px solid #c1121f; }
 
-    /* FAN MODE TOGGLE */
+    /* ---------------- FAN MODE BUTTON ---------------- */
     .fan-toggle {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 25px;
+      right: 25px;
       background: white;
-      padding: 6px 14px;
-      font-size: 0.9rem;
+      padding: 6px 15px;
       border-radius: 30px;
-      cursor: pointer;
       border: none;
-      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 700;
       color: #222;
-      transition: 0.3s;
+      z-index: 6;
+      transition: 0.25s ease-in-out;
     }
+    .fan-toggle:hover { background: #ddd; }
 
-    .fan-toggle:hover {
-      background: #ddd;
-    }
-
-    /* ANIMATION CLASSES */
-    .scroll-fade { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
-    .scroll-fade.visible { opacity: 1; transform: translateY(0); }
-
+    /* ================= TEXT ================== */
     .hero-title {
-      font-size: 3rem;
+      font-size: 3.1rem;
       font-weight: 800;
+      line-height: 1.25;
       text-shadow: 0px 0px 12px rgba(0,0,0,0.6);
+      z-index: 5;
     }
 
     .hero-sub {
       max-width: 700px;
       margin: 20px auto;
       font-size: 1.2rem;
-      text-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+      text-shadow: 0px 0px 10px rgba(0,0,0,0.55);
+      z-index: 5;
     }
 
+    /* ================= GLOW BUTTONS ================= */
     .hero-buttons {
-      margin-top: 25px;
+      margin-top: 30px;
       display: flex;
       gap: 20px;
       justify-content: center;
+      z-index: 5;
+      position: relative;
+    }
+
+    .hero-btn {
+      padding: 0.9rem 1.75rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      border: 3px solid white;
+      transition: 0.25s;
+      box-shadow: 0 0 18px rgba(0,0,0,0.3);
+    }
+
+    .hero-btn.primary {
+      background: #c1121f;
+      border-color: #c1121f;
+      color: white;
+    }
+
+    .hero-btn.secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.45);
+    }
+
+    /* ================== SCROLL FADE ================== */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .8s ease, transform .8s ease;
+      z-index: 4;
+      position: relative;
+    }
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -116,18 +159,15 @@
   </nav>
 </header>
 
-<!-- ===== HERO SECTION WITH REAL IMAGES ===== -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-  
-  <!-- REAL PLAYER BACKGROUNDS -->
+
   <div class="hero-side hero-left"></div>
   <div class="hero-side hero-right"></div>
 
-  <!-- PLAYER LABELS -->
   <div class="player-label player-left">RONALDO</div>
   <div class="player-label player-right">MESSI</div>
 
-  <!-- FAN MODE BUTTON -->
   <button id="fanModeBtn" class="fan-toggle">Fun Mode</button>
 
   <div class="scroll-fade">
@@ -137,14 +177,15 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="case.html" class="button primary">Read the Case</a>
-      <a href="stats.html" class="button secondary">Compare Stats</a>
+      <a href="case.html" class="hero-btn primary">Read the Case</a>
+      <a href="stats.html" class="hero-btn secondary">Compare Stats</a>
     </div>
   </div>
+
 </section>
 
 <script>
-/* Scroll Animations */
+/* ================= SCROLL ANIMATIONS ================= */
 function revealOnScroll() {
   document.querySelectorAll('.scroll-fade').forEach(el => {
     const trigger = window.innerHeight * 0.85;
@@ -156,7 +197,7 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-/* FUN MODE */
+/* ================= FUN MODE ================= */
 const btn = document.getElementById("fanModeBtn");
 let fan = false;
 

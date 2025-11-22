@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/styles.css" />
 
   <style>
-    /* =============== HERO BLEND (Faceoff Version B) =============== */
+    /* =============== SOFT BLEND SPLIT HERO =============== */
 
     .hero-blend {
       position: relative;
@@ -18,110 +18,106 @@
       justify-content: center;
       text-align: center;
       overflow: hidden;
-      background: #000;
     }
 
-    /* Background image with slow zoom */
-    .hero-blend::before {
-      content: "";
+    /* LEFT IMAGE — RONALDO */
+    .hero-left {
       position: absolute;
       inset: 0;
-      background-image: url("assets/faceoff.png");
+      background-image: url("/mnt/data/soccer-pictures-vnl5lv3bkbrkh30d.jpg");
       background-size: cover;
-      background-position: center;
-      transform: scale(1);
-      animation: heroZoom 20s ease-in-out infinite alternate;
-      z-index: 0;
+      background-position: center left;
+      z-index: 1;
+      opacity: 1;
+      animation: zoomHero 18s ease-in-out infinite alternate;
     }
 
-    @keyframes heroZoom {
-      0% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(1.08);
-      }
-    }
-
-    /* Dark overlay for readability */
-    .hero-blend .overlay {
+    /* RIGHT IMAGE — MESSI */
+    .hero-right {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
-      backdrop-filter: blur(1.5px);
-      z-index: 1;
+      background-image: url("/mnt/data/lionel-messi-kicking-a-ball-im8dgqsp0qx38lgv.jpg");
+      background-size: cover;
+      background-position: center right;
+      z-index: 2;
+      opacity: 0.65; /* soften blend */
+      mix-blend-mode: screen; /* soft fade effect */
+      animation: zoomHero 18s ease-in-out infinite alternate;
     }
 
-    /* Ronaldo / Messi labels (subtle) */
+    @keyframes zoomHero {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    /* DARK OVERLAY */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.75)
+      );
+      z-index: 3;
+    }
+
+    /* LABELS */
     .hero-label {
       position: absolute;
-      top: 18%;
-      font-size: 1.15rem;
+      top: 14%;
+      font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      z-index: 2;
-      padding: 0.25rem 0.7rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-label.left {
-      left: 8%;
-      border: 1px solid rgba(4, 114, 77, 0.7);
-      color: #e6fff4;
-    }
-
-    .hero-label.right {
-      right: 8%;
-      border: 1px solid rgba(193, 18, 31, 0.7);
-      color: #ffe6e9;
-    }
-
-    /* Hero text content */
-    .hero-blend .hero-content {
-      position: relative;
-      z-index: 3;
+      text-transform: uppercase;
+      z-index: 4;
+      backdrop-filter: blur(4px);
       color: white;
-      max-width: 700px;
-      padding: 1rem;
     }
 
-    .hero-blend h1 {
+    .label-left {
+      left: 8%;
+      border: 2px solid #04724d;
+    }
+
+    .label-right {
+      right: 8%;
+      border: 2px solid #c1121f;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 720px;
+      padding: 1rem;
+      color: white;
+    }
+
+    .hero-content h1 {
       font-size: 2.8rem;
       font-weight: 800;
-      line-height: 1.2;
       margin-bottom: 0.6rem;
-      text-shadow: 0 0 14px rgba(0, 0, 0, 0.85);
+      text-shadow: 0 0 15px rgba(0,0,0,0.9);
     }
 
-    .hero-blend h1 span {
-      background: linear-gradient(90deg, #ffd76a, #ffffff);
+    .hero-content h1 span {
+      background: linear-gradient(90deg, #fff3b2, #ffffff);
       -webkit-background-clip: text;
-      background-clip: text;
       color: transparent;
     }
 
-    .hero-blend p {
+    .hero-content p {
       font-size: 1.1rem;
-      opacity: 0.93;
+      opacity: 0.92;
       margin-bottom: 1.4rem;
     }
 
-    .cta {
-      margin-top: 0.2rem;
-    }
-
-    .cta .btn {
-      margin: 0 0.3rem;
-    }
-
-    /* Scroll animations */
+    /* Scroll Fade */
     .scroll-fade {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(25px);
+      transition: 0.7s ease;
     }
 
     .scroll-fade.visible {
@@ -129,42 +125,12 @@
       transform: translateY(0);
     }
 
-    /* Intro section under hero */
+    /* Intro section */
     .intro-section {
       padding: 2.2rem 1.5rem 3rem;
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
-    }
-
-    .intro-section h2 {
-      margin-bottom: 0.5rem;
-      color: var(--charcoal);
-    }
-
-    .intro-section p {
-      color: #555;
-      max-width: 720px;
-      margin: 0.5rem auto 0;
-    }
-
-    @media (max-width: 720px) {
-      .hero-blend h1 {
-        font-size: 2.1rem;
-      }
-
-      .hero-label {
-        top: 16%;
-        font-size: 0.9rem;
-      }
-
-      .hero-label.left {
-        left: 6%;
-      }
-
-      .hero-label.right {
-        right: 6%;
-      }
     }
   </style>
 </head>
@@ -182,31 +148,34 @@
   </nav>
 </header>
 
-<!-- ===== HERO BLEND SECTION ===== -->
+<!-- ===== HERO SECTION ===== -->
 <section class="hero-blend">
-  <div class="overlay"></div>
 
-  <span class="hero-label left">Ronaldo</span>
-  <span class="hero-label right">Messi</span>
+  <div class="hero-left"></div>
+  <div class="hero-right"></div>
+  <div class="hero-overlay"></div>
+
+  <span class="hero-label label-left">Ronaldo</span>
+  <span class="hero-label label-right">Messi</span>
 
   <div class="hero-content scroll-fade">
     <h1><span>Why Ronaldo</span> is Better than Messi</h1>
-    <p>A comparison built on outcomes, longevity, adaptability, and big-game impact — not just aesthetics.</p>
+    <p>A comparison based on outcomes, longevity, adaptability, and big-game moments.</p>
 
     <div class="cta">
       <a class="btn primary" href="case.html">Read the Case</a>
       <a class="btn" href="stats.html">Compare Stats</a>
     </div>
   </div>
+
 </section>
 
 <!-- ===== INTRO SECTION ===== -->
 <section class="intro-section scroll-fade">
-  <h2>What This Site Actually Measures</h2>
+  <h2>What This Site Measures</h2>
   <p>
-    Instead of arguing about who looks nicer on the ball, this project focuses on trophy-relevant metrics:
-    Champions League dominance, performance in knockout rounds, adaptability across leagues, and sustained
-    production over nearly two decades at the top level.
+    We compare both legends using outcome-based metrics: Champions League dominance,
+    adaptability across leagues, and long-term clutch performance — not just playstyle.
   </p>
 </section>
 
@@ -214,19 +183,16 @@
   <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
 </footer>
 
-<!-- Scroll reveal -->
 <script>
   const revealEls = document.querySelectorAll('.scroll-fade');
-
   function revealOnScroll() {
     const trigger = window.innerHeight * 0.85;
-
     revealEls.forEach(el => {
-      const rect = el.getBoundingClientRect().top;
-      if (rect < trigger) el.classList.add('visible');
+      if (el.getBoundingClientRect().top < trigger) {
+        el.classList.add('visible');
+      }
     });
   }
-
   window.addEventListener('scroll', revealOnScroll);
   window.addEventListener('load', revealOnScroll);
 </script>

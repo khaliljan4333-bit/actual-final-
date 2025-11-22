@@ -233,3 +233,50 @@ details[open] summary {
   .hero-content .sub { font-size: 1rem; }
   .site-nav a { margin: 0 0.3em; }
 }
+/* ======================= SCROLL ANIMATIONS ======================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* LEFT + RIGHT ANIMATIONS */
+.scroll-left {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition: all 0.9s ease-out;
+}
+
+.scroll-left.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-right {
+  opacity: 0;
+  transform: translateX(45px);
+  transition: all 0.9s ease-out;
+}
+
+.scroll-right.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ZOOM-IN ANIMATION */
+.scroll-zoom {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.9s ease-out;
+}
+
+.scroll-zoom.reveal-visible {
+  opacity: 1;
+  transform: scale(1);
+}

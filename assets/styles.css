@@ -50,7 +50,7 @@ header, footer {
 
 .site-nav a:hover { opacity: 0.85; }
 
-/* ======================= NEW HERO ======================= */
+/* ======================= IMPROVED HERO ======================= */
 
 .hero-split {
   position: relative;
@@ -60,48 +60,50 @@ header, footer {
   justify-content: center;
   text-align: center;
   overflow: hidden;
-
   background-image: url("assets/faceoff.png");
   background-size: cover;
   background-position: center;
 }
 
-.hero-split::before,
-.hero-split::after {
+/* Strong gradient overlay for readability */
+.hero-split::before {
   content: "";
   position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  mix-blend-mode: multiply;
-}
-
-.hero-split::before {
-  left: 0;
-  background: rgba(4, 114, 77, 0.55);
-}
-
-.hero-split::after {
-  right: 0;
-  background: rgba(193, 18, 31, 0.55);
-}
-
-.overlay {
-  position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(2px);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.55)
+  );
+  z-index: 1;
 }
 
 /* HERO TEXT */
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   color: white;
-  max-width: 700px;
-  padding: 1rem;
+  max-width: 780px;
+  padding: 1.5rem;
+  animation: fadeUp 1.4s ease-out forwards;
 }
 
+.hero-content h1 {
+  font-size: 2.7rem;
+  line-height: 1.2;
+  font-weight: 800;
+  text-shadow: 0 0 8px rgba(0,0,0,0.55);
+}
+
+.hero-content .sub {
+  font-size: 1.2rem;
+  margin: 0.6rem 0 1.4rem;
+  text-shadow: 0 0 6px rgba(0,0,0,0.45);
+}
+
+.cta { margin-top: 1rem; }
+.cta .btn { margin: 0.4rem; }
+
+/* Fade animation */
 .fade-in {
   opacity: 0;
   animation: fadeUp 1.4s ease-out forwards;
@@ -134,7 +136,7 @@ header, footer {
 
 .btn.primary:hover { background:#a10d18; }
 
-/* ======================= FAQ PAGE UPGRADE ======================= */
+/* ======================= FAQ PAGE ======================= */
 
 .faq-container {
   max-width: 900px;
@@ -214,7 +216,7 @@ details[open] summary {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ======================= Chart Fixes ======================= */
+/* ======================= Charts & Images ======================= */
 
 .stats-chart {
   display: block;
@@ -225,8 +227,9 @@ details[open] summary {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Responsive Fixes */
+/* MOBILE FIXES */
 @media (max-width: 600px) {
-  .hero-content h1 { font-size: 1.7rem; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content .sub { font-size: 1rem; }
   .site-nav a { margin: 0 0.3em; }
 }

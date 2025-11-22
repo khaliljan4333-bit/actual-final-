@@ -301,3 +301,15 @@ body.faq-page {
 body.sources-page {
   background: #f4f7fa; /* neutral gray-blue */
 }
+/* ===================== HOME SPLIT BACKGROUND ===================== */
+
+.home-page {
+  background: linear-gradient(to right, #04724d 0%, #04724d 50%, #c1121f 50%, #c1121f 100%);
+  min-height: 100vh;
+}
+
+/* Make sure hero section stays readable above split background */
+.hero-split {
+  position: relative;
+  z-index: 2;
+}

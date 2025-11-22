@@ -75,6 +75,19 @@
   font-weight: 700;
   border: none;
   margin-top: 0.4rem;
+  margin-right: .4rem;
+}
+
+/* Debate Mode button */
+#debateToggle {
+  background: var(--green);
+  padding: .55rem 1.1rem;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  border: none;
+  margin-top: 0.4rem;
 }
 
 /* button shake in fan mode */
@@ -201,10 +214,152 @@
   100% { opacity: 0; transform: translateX(-50%) scale(0.9); }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== GOAT RADAR BUTTON & OVERLAY ===== */
+.goat-radar-btn {
+  position: fixed;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  z-index: 40;
+  background: var(--green);
+  color: #fff;
+  border-radius: 999px;
+  border: none;
+  padding: 0.65rem 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.goat-radar-btn span {
+  font-size: 1.1rem;
+}
+
+/* Radar overlay container */
+.goat-radar-overlay {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 4.5rem;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(4,114,77,0.7), rgba(4,114,77,0.1));
+  box-shadow: 0 0 18px rgba(4,114,77,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 35;
+  overflow: hidden;
+}
+
+/* Radar circle + line */
+.radar-circle {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+.radar-circle::before {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.4);
+}
+
+.radar-sweep {
+  position: absolute;
+  width: 55%;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255,255,255,0.8), transparent);
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  animation: radarSpin 1.3s linear infinite;
+}
+
+@keyframes radarSpin {
+  to { transform: rotate(360deg); }
+}
+
+.goat-radar-msg {
+  position: fixed;
+  right: 1.6rem;
+  bottom: 6.1rem;
+  max-width: 210px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: #fff;
+  color: #103524;
+  font-size: 0.78rem;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 45;
+}
+
+/* ===== DEBATE MODE BANNER ===== */
+.debate-banner {
+  position: fixed;
+  left: 50%;
+  bottom: -60px;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 45;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.debate-banner.show {
+  animation: bannerSlideUp 0.35s ease-out forwards;
+}
+
+.debate-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(193,18,31,0.8);
+}
+
+@keyframes bannerSlideUp {
+  0% { bottom: -60px; opacity: 0; }
+  100% { bottom: 1.2rem; opacity: 1; }
+}
+
 @media (max-width: 720px) {
   .split-row {
     grid-template-columns: 1fr;
+  }
+
+  .goat-radar-btn {
+    right: 0.8rem;
+    bottom: 0.8rem;
+  }
+
+  .goat-radar-overlay {
+    right: 0.8rem;
+    bottom: 4rem;
+  }
+
+  .goat-radar-msg {
+    right: 0.8rem;
+    bottom: 5.8rem;
+  }
+
+  .debate-banner {
+    max-width: 90%;
+    text-align: center;
   }
 }
 </style>
@@ -226,6 +381,23 @@
 <!-- Golden SIUU burst -->
 <div class="siuu-burst" id="siuuBurst">S I U U U !</div>
 
+<!-- GOAT Radar UI -->
+<div class="goat-radar-overlay" id="goatRadarOverlay">
+  <div class="radar-circle">
+    <div class="radar-sweep"></div>
+  </div>
+</div>
+<div class="goat-radar-msg" id="goatRadarMsg"></div>
+<button class="goat-radar-btn" id="goatRadarBtn">
+  <span>🧭</span> GOAT Radar
+</button>
+
+<!-- Debate banner -->
+<div class="debate-banner" id="debateBanner">
+  <span class="debate-dot"></span>
+  <span id="debateText">Debate mode activated.</span>
+</div>
+
 <main>
 
   <h1 class="case-title scroll-reveal">The Case for Cristiano Ronaldo</h1>
@@ -237,6 +409,7 @@
   <div id="modeBox" class="scroll-zoom">
     <span id="modeText">Logic Mode: Outcome-Based Evaluation</span><br><br>
     <button id="toggleMode">Switch to Fan Mode</button>
+    <button id="debateToggle">Toggle Debate Mode</button>
   </div>
 
   <!-- ================= HOW THE DEBATE IS SCORED ================= -->
@@ -425,7 +598,7 @@
   <p>&copy; <span id="year"></span> Outcomes-first analysis.</p>
 </footer>
 
-<!-- ============ FAN MODE SCRIPT (UPGRADED) ============ -->
+<!-- ============ FAN MODE + FUN FEATURES SCRIPT ============ -->
 <script>
 const btn = document.getElementById("toggleMode");
 const box = document.getElementById("modeBox");
@@ -457,6 +630,86 @@ btn.onclick = () => {
     box.style.borderColor = "var(--red)";
   }
 };
+
+/* ===== GOAT RADAR FEATURE ===== */
+const radarBtn = document.getElementById("goatRadarBtn");
+const radarOverlay = document.getElementById("goatRadarOverlay");
+const radarMsg = document.getElementById("goatRadarMsg");
+
+const radarLines = [
+  "GOAT Radar ping: knockout goals detected in high-pressure zones.",
+  "Signal locked: multi-league dominance confirmed.",
+  "Reading shows: longevity above historical average.",
+  "Alert: clutch DNA off the charts.",
+  "Noise from aesthetics removed. Outcome signal remains: Ronaldo.",
+  "Scan complete: system-independence verified.",
+  "Data spike near Champions League nights. Coincidence? Probably not."
+];
+
+let radarOn = false;
+
+radarBtn.addEventListener("click", () => {
+  radarOn = !radarOn;
+
+  if (radarOn) {
+    radarOverlay.style.display = "flex";
+    radarMsg.style.display = "block";
+
+    const line = radarLines[Math.floor(Math.random() * radarLines.length)];
+    radarMsg.textContent = line;
+    radarBtn.textContent = "🔎 Scanning GOAT data...";
+    setTimeout(() => {
+      radarBtn.innerHTML = '<span>🧭</span> GOAT Radar';
+    }, 900);
+  } else {
+    radarOverlay.style.display = "none";
+    radarMsg.style.display = "none";
+  }
+});
+
+/* ===== DEBATE MODE FEATURE ===== */
+const debateToggle = document.getElementById("debateToggle");
+const debateBanner = document.getElementById("debateBanner");
+const debateText = document.getElementById("debateText");
+
+const debateLines = [
+  "Oh, you value dribbling over deciding seasons? Interesting choice.",
+  "Champions League knockout rounds say hi.",
+  "Longevity is a skill. Not everyone unlocks it.",
+  "Different leagues, same end product. That matters.",
+  "Pretty football is nice. Trophies are nicer.",
+  "If pressure breaks players, why is he still scoring?",
+  "Aesthetics don’t rescue you in the 88th minute.",
+  "Outcome-based arguments hurt feelings, not facts."
+];
+
+let debateOn = false;
+let debateInterval = null;
+
+function startDebateCycle() {
+  let index = 0;
+  debateText.textContent = debateLines[index];
+
+  debateInterval = setInterval(() => {
+    index = (index + 1) % debateLines.length;
+    debateText.textContent = debateLines[index];
+  }, 4000);
+}
+
+debateToggle.addEventListener("click", () => {
+  debateOn = !debateOn;
+
+  if (debateOn) {
+    debateBanner.classList.add("show");
+    startDebateCycle();
+    debateToggle.textContent = "Turn Off Debate Mode";
+  } else {
+    debateBanner.classList.remove("show");
+    if (debateInterval) clearInterval(debateInterval);
+    debateInterval = null;
+    debateToggle.textContent = "Toggle Debate Mode";
+  }
+});
 </script>
 
 <script src="assets/app.js" defer></script>
